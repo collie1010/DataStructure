@@ -1,5 +1,18 @@
 package BinarySearch;
 
+/***
+ * 
+ * 時間複雜度: 
+ *  最佳: O(1)
+ *  平均情況: O(log(n))
+ *  最差: O(log(n))
+ * 
+ * 空間複雜度:
+ *  Iterative: O(1)
+ *  Recursive: O(log(n)) (因為需要遞迴呼叫 Stack)
+ *  
+ * */
+
 public class BinarySearch {
 	// 二元搜尋方法
     public static int binarySearch(int[] arr, int target) {
