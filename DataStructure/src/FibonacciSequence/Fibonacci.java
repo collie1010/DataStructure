@@ -91,7 +91,7 @@ public class Fibonacci {
 		System.out.println();
 
 		// 效能比較測試
-		int largeNumber = 40;
+		int largeNumber = 45;
 
 		long startTime = System.currentTimeMillis();
 		int result1 = fibonacciRecursive(largeNumber);
