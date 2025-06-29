@@ -5,9 +5,8 @@ import java.util.Arrays;
 
 /**
  * 時間複雜度 
- * 	插入 : O(log(1)) 
- * 	刪除 : O(log(1)) 
- *  搜尋 : O(n)
+ * 	插入 : O(1) 
+ * 	刪除 : O(1) 
  *  搜尋 : O(n)
  * 
  */
