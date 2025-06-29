@@ -8,6 +8,7 @@ import java.util.Arrays;
  * 	插入 : O(1) 
  * 	刪除 : O(1) 
  *  搜尋 : O(n)
+ *  Peek : O(1)
  * 
  */
 
