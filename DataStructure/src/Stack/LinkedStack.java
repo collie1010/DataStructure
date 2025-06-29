@@ -1,5 +1,14 @@
 package Stack;
 
+/**
+ * 時間複雜度:
+ * 	插入 : O(1)
+ * 	刪除 : O(1)
+ * 	搜尋 : O(n)
+ *  Peek : O(1)
+ * 
+ */
+
 public class LinkedStack<T>  {
 	private class Node {
         T data;
