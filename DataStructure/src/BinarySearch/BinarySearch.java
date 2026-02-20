@@ -40,6 +40,30 @@ public class BinarySearch {
         // 找不到目標值
         return -1;
     }
+
+    // 找到第一個小於或等於 target 的元素的索引
+    public static int binarySearchLowerBound(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] < target) left = mid + 1;
+            else right = mid - 1;
+        }
+        return left;
+    }
+
+    // 找到最後一個小於或等於 target 的元素的索引
+    public static int binarySearchUpperBound(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] > target)  right = mid - 1;
+            else left = mid + 1;
+        }
+        return right;
+    }
     
     // 遞迴版本的二元搜尋
     public static int binarySearchRecursive(int[] arr, int target, int left, int right) {
