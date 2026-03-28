@@ -1,55 +1,49 @@
 package UnionFind;
 
 public class UnionFind {
-    private int[] parent;
-    private int[] rank;
-    private int count; // 連通分量的數量
+    private int[] parent;  // 記錄每個節點的父節點
+    private int count;     // 記錄集合數量
     
+    // 建構子：初始化 n 個獨立的集合
     public UnionFind(int n) {
         parent = new int[n];
-        rank = new int[n];
         count = n;
-        
-        // 初始化，每個元素的父節點是自己
+        // 每個元素的父節點初始為自己
         for (int i = 0; i < n; i++) {
             parent[i] = i;
-            rank[i] = 0;
         }
     }
     
-    // 查找操作（帶路徑壓縮）
+    // Find：查找元素 x 的根節點（所屬集合的代表）
     public int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]); // 路徑壓縮
+        // 如果 x 不是根節點，繼續往上找
+        while (parent[x] != x) {
+            x = parent[x];
         }
-        return parent[x];
+        return x;
     }
     
-    // 合併操作（按秩合併）
+    // Union：合併兩個元素所在的集合
     public void union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
         
-        if (rootX != rootY) {
-            // 按秩合併
-            if (rank[rootX] < rank[rootY]) {
-                parent[rootX] = rootY;
-            } else if (rank[rootX] > rank[rootY]) {
-                parent[rootY] = rootX;
-            } else {
-                parent[rootY] = rootX;
-                rank[rootX]++;
-            }
-            count--; // 合併後連通分量減少
+        // 如果已經在同一個集合，不需要合併
+        if (rootX == rootY) {
+            return;
         }
+        
+        // 將一個集合的根節點指向另一個
+        parent[rootX] = rootY;
+        count--;  // 集合數量減 1
     }
     
-    // 判斷兩個元素是否連通
+    // 判斷兩個元素是否在同一個集合
     public boolean connected(int x, int y) {
         return find(x) == find(y);
     }
     
-    // 獲取連通分量的數量
+    // 獲取集合數量
     public int getCount() {
         return count;
     }
